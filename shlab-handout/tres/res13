@@ -1,0 +1,97 @@
+./sdriver.pl -t trace13.txt -s ./tsh -a "-p"
+#
+# trace13.txt - Restart every stopped process in process group
+#
+tsh> ./mysplit 4
+Job [1] (32316) stopped by signal 20
+tsh> jobs
+[1] (32316) Stopped ./mysplit 4 
+tsh> /bin/ps a
+  PID TTY      STAT   TIME COMMAND
+ 1172 tty4     Ss+    0:00 /sbin/getty -8 38400 tty4
+ 1177 tty5     Ss+    0:00 /sbin/getty -8 38400 tty5
+ 1184 tty2     Ss+    0:00 /sbin/getty -8 38400 tty2
+ 1185 tty3     Ss+    0:00 /sbin/getty -8 38400 tty3
+ 1188 tty6     Ss+    0:00 /sbin/getty -8 38400 tty6
+ 1391 tty7     Ss+    0:09 /usr/bin/X :0 -background none -verbose -auth /var/run/gdm/auth-for-gdm-vokQPa/database -seat seat0 -nolisten tcp vt7
+ 1772 tty1     Ss+    0:00 /sbin/getty -8 38400 tty1
+ 4504 pts/7    Ss     0:00 -bash
+ 4750 pts/7    S+     0:00 vim
+ 9914 pts/2    Ss+    0:00 -bash
+10356 pts/4    Ss+    0:00 -bash
+10946 pts/5    Ss+    0:00 -bash
+17634 pts/1    Ss+    0:00 -bash
+19546 pts/9    Ss+    0:00 -bash
+24295 pts/12   Ss     0:00 -bash
+27666 pts/12   S+     0:00 vi tsh.c
+27737 pts/13   Ss     0:00 -bash
+27777 pts/13   T      0:10 vi tsh.c
+28851 pts/15   Ss     0:00 -bash
+29287 pts/13   T      0:06 vi tsh.c
+29422 pts/15   T      0:00 make test05
+29423 pts/15   T      0:00 /bin/sh -c ./sdriver.pl -t trace05.txt -s ./tsh -a "-p"
+29424 pts/15   T      0:00 /usr/bin/perl ./sdriver.pl -t trace05.txt -s ./tsh -a -p
+29425 pts/15   Z      0:00 [tsh] <defunct>
+29437 pts/15   T      0:00 make test05
+29438 pts/15   T      0:00 /bin/sh -c ./sdriver.pl -t trace05.txt -s ./tsh -a "-p"
+29439 pts/15   T      0:00 /usr/bin/perl ./sdriver.pl -t trace05.txt -s ./tsh -a -p
+29440 pts/15   Z      0:00 [tsh] <defunct>
+29820 pts/13   S+     0:21 vi tsh.c
+31085 pts/6    Ss     0:00 -bash
+31330 pts/14   Ss     0:00 -bash
+31408 pts/15   S+     0:00 vi tsh.c
+31478 pts/16   Ss     0:00 -bash
+31503 pts/16   S+     0:00 ./tshref
+32069 pts/6    S+     0:01 vim tsh.c
+32310 pts/14   S+     0:00 -bash
+32311 pts/14   S+     0:00 make test13
+32312 pts/14   S+     0:00 /bin/sh -c ./sdriver.pl -t trace13.txt -s ./tsh -a "-p"
+32313 pts/14   S+     0:00 /usr/bin/perl ./sdriver.pl -t trace13.txt -s ./tsh -a -p
+32314 pts/14   S+     0:00 ./tsh -p
+32316 pts/14   T      0:00 ./mysplit 4
+32317 pts/14   T      0:00 ./mysplit 4
+32320 pts/14   R      0:00 /bin/ps a
+tsh> fg %1
+tsh> /bin/ps a
+  PID TTY      STAT   TIME COMMAND
+ 1172 tty4     Ss+    0:00 /sbin/getty -8 38400 tty4
+ 1177 tty5     Ss+    0:00 /sbin/getty -8 38400 tty5
+ 1184 tty2     Ss+    0:00 /sbin/getty -8 38400 tty2
+ 1185 tty3     Ss+    0:00 /sbin/getty -8 38400 tty3
+ 1188 tty6     Ss+    0:00 /sbin/getty -8 38400 tty6
+ 1391 tty7     Ss+    0:09 /usr/bin/X :0 -background none -verbose -auth /var/run/gdm/auth-for-gdm-vokQPa/database -seat seat0 -nolisten tcp vt7
+ 1772 tty1     Ss+    0:00 /sbin/getty -8 38400 tty1
+ 4504 pts/7    Ss     0:00 -bash
+ 4750 pts/7    S+     0:00 vim
+ 9914 pts/2    Ss+    0:00 -bash
+10356 pts/4    Ss+    0:00 -bash
+10946 pts/5    Ss+    0:00 -bash
+17634 pts/1    Ss+    0:00 -bash
+19546 pts/9    Ss+    0:00 -bash
+24295 pts/12   Ss     0:00 -bash
+27666 pts/12   S+     0:00 vi tsh.c
+27737 pts/13   Ss     0:00 -bash
+27777 pts/13   T      0:10 vi tsh.c
+28851 pts/15   Ss     0:00 -bash
+29287 pts/13   T      0:06 vi tsh.c
+29422 pts/15   T      0:00 make test05
+29423 pts/15   T      0:00 /bin/sh -c ./sdriver.pl -t trace05.txt -s ./tsh -a "-p"
+29424 pts/15   T      0:00 /usr/bin/perl ./sdriver.pl -t trace05.txt -s ./tsh -a -p
+29425 pts/15   Z      0:00 [tsh] <defunct>
+29437 pts/15   T      0:00 make test05
+29438 pts/15   T      0:00 /bin/sh -c ./sdriver.pl -t trace05.txt -s ./tsh -a "-p"
+29439 pts/15   T      0:00 /usr/bin/perl ./sdriver.pl -t trace05.txt -s ./tsh -a -p
+29440 pts/15   Z      0:00 [tsh] <defunct>
+29820 pts/13   S+     0:21 vi tsh.c
+31085 pts/6    Ss     0:00 -bash
+31330 pts/14   Ss     0:00 -bash
+31408 pts/15   S+     0:00 vi tsh.c
+31478 pts/16   Ss     0:00 -bash
+31503 pts/16   S+     0:00 ./tshref
+32069 pts/6    S+     0:01 vim tsh.c
+32310 pts/14   S+     0:00 -bash
+32311 pts/14   S+     0:00 make test13
+32312 pts/14   S+     0:00 /bin/sh -c ./sdriver.pl -t trace13.txt -s ./tsh -a "-p"
+32313 pts/14   S+     0:00 /usr/bin/perl ./sdriver.pl -t trace13.txt -s ./tsh -a -p
+32314 pts/14   S+     0:00 ./tsh -p
+32323 pts/14   R      0:00 /bin/ps a
