@@ -67,6 +67,7 @@ void * process(void * arg){
 		Close(connfd);
 		return NULL;
 	}
+
 	//parse url to host, path, port
 	if(urlp(url,host,path,&port) == -1){
 		printf("Wrong url(maybe HTTPS)\n");
@@ -74,6 +75,7 @@ void * process(void * arg){
 		Close(connfd);
 		return NULL;
 	}
+
 	//connect to the target server for request
 	sprintf(portc,"%d",port);
 	clientfd = Open_clientfd(host,portc);
@@ -98,7 +100,7 @@ void * process(void * arg){
 	
  	//get responce
 	Rio_readinitb(&rio_s,clientfd);
-	while((n = Rio_readnb(&rio_s, buf,MAX_OBJECT_SIZE - 1))){
+	while((n = Rio_readnb(&rio_s, buf,MAX_OBJECT_SIZE - 1))){ // read rawdata until end
 		//send to the proxy client
 		write(connfd,buf,n);
 	}
